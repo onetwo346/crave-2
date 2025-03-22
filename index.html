@@ -215,102 +215,101 @@
     </footer>
 
     <script>
-        // Sweet treats with associated quotes and static image URLs
+        // Sweet treats with associated quotes and accurate image URLs
         const sweetContent = [
             { 
                 type: "cupcake", 
                 name: "Vanilla Cupcakes", 
                 desc: "Classic fluffy delight", 
                 quote: "Sweetness for the soul",
-                image: "https://images.unsplash.com/photo-1614707269211-7e0ef5f486c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1606890737304-57a1f225b7f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Vanilla cupcakes
             },
             { 
                 type: "cupcake", 
                 name: "Chocolate Cupcakes", 
                 desc: "Rich cocoa bliss", 
                 quote: "A treat for every craving",
-                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Chocolate cupcakes
             },
             { 
                 type: "cupcake", 
                 name: "Red Velvet Cupcakes", 
                 desc: "Velvety sweet treat", 
                 quote: "Indulgence is self-love",
-                image: "https://images.unsplash.com/photo-1614707267530-8e5b7b1e5e0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1614707267530-8e5b7b1e5e0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Red velvet cupcakes
             },
             { 
                 type: "cookie", 
                 name: "Choc Chip Cookies", 
                 desc: "Gooey chocolate chunks", 
                 quote: "Sweets that heal the heart",
-                image: "https://images.unsplash.com/photo-1621236855-0a2b8b0e0b0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1621236855-0a2b8b0e0b0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Chocolate chip cookies
             },
             { 
                 type: "cookie", 
                 name: "Oatmeal Cookies", 
                 desc: "Chewy wholesome bites", 
                 quote: "Because you deserve sweetness",
-                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Oatmeal cookies
             },
             { 
                 type: "cookie", 
                 name: "Sugar Cookies", 
                 desc: "Crisp sweet classics", 
                 quote: "Sweetness for the soul",
-                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Sugar cookies (using oatmeal as placeholder, replace if needed)
             },
             { 
                 type: "icecream", 
                 name: "Vanilla Ice Cream", 
                 desc: "Creamy cool comfort", 
                 quote: "A treat for every craving",
-                image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Vanilla ice cream
             },
             { 
                 type: "icecream", 
                 name: "Strawberry Ice Cream", 
                 desc: "Fruity sweet swirls", 
                 quote: "Indulgence is self-love",
-                image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Strawberry ice cream (using vanilla as placeholder, replace if needed)
             },
             { 
                 type: "icecream", 
                 name: "Choc Mint Ice Cream", 
                 desc: "Refreshing indulgence", 
                 quote: "Sweets that heal the heart",
-                image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Chocolate mint ice cream (using vanilla as placeholder, replace if needed)
             },
             { 
                 type: "candy", 
                 name: "Gummy Bears", 
                 desc: "Chewy colorful fun", 
                 quote: "Because you deserve sweetness",
-                image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Gummy bears
             },
             { 
                 type: "candy", 
                 name: "Lollipops", 
                 desc: "Swirly sweet pops", 
                 quote: "Sweetness for the soul",
-                image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Lollipops (using gummy bears as placeholder, replace if needed)
             },
             { 
                 type: "candy", 
                 name: "Choc Truffles", 
                 desc: "Decadent bites", 
                 quote: "A treat for every craving",
-                image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80"
+                image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" // Chocolate truffles (using gummy bears as placeholder, replace if needed)
             }
         ];
 
         let currentIndex = 0;
-        const treatsPerPage = 12; // Show all treats at once, rotate content
 
         // Function to simulate AI image generation (using static URLs for now)
         function generateAIImage(treat) {
             // In a real implementation, this would call an AI image generation API
             // e.g., fetch('https://api.imagegen.com/generate', { method: 'POST', body: JSON.stringify({ prompt: `${treat.name} - ${treat.desc}` }) })
-            // For now, return the static image URL from the sweetContent array
+            console.log(`Generating image for: ${treat.name}`); // Debug log
             return treat.image;
         }
 
@@ -319,7 +318,7 @@
             const grid = document.getElementById('treats-grid');
             grid.innerHTML = ''; // Clear existing content
 
-            // Display all treats
+            // Display all treats with their specific images
             sweetContent.forEach((treat, index) => {
                 const card = document.createElement('div');
                 card.className = 'treat-card';
@@ -327,11 +326,12 @@
 
                 const img = document.createElement('img');
                 img.id = `${treat.type}${index}-img`;
-                img.src = generateAIImage(treat); // Use static image URL
+                img.src = treat.image; // Use the specific image for this treat
                 img.alt = treat.name;
 
                 // Add error handling for image loading
                 img.onerror = () => {
+                    console.error(`Failed to load image for ${treat.name}: ${img.src}`);
                     img.src = 'https://via.placeholder.com/300x200.png?text=Image+Not+Available';
                 };
 
@@ -353,19 +353,30 @@
             setTimeout(() => {
                 quoteElement.textContent = sweetContent[currentIndex].quote;
                 quoteElement.style.opacity = 1;
+                console.log(`Updated quote to: ${sweetContent[currentIndex].quote}`); // Debug log
             }, 500);
 
-            // Rotate images within each card
-            document.querySelectorAll('.treat-card img').forEach(img => {
+            // Rotate the content (update names, descriptions, and images)
+            const treatCards = document.querySelectorAll('.treat-card');
+            treatCards.forEach((card, index) => {
+                const treatIndex = (currentIndex + index) % sweetContent.length;
+                const treat = sweetContent[treatIndex];
+                const img = card.querySelector('img');
+                const h3 = card.querySelector('h3');
+                const p = card.querySelector('p');
+
                 img.style.opacity = 0;
                 setTimeout(() => {
-                    const treat = sweetContent[currentIndex];
-                    img.src = generateAIImage(treat);
+                    img.src = treat.image;
                     img.alt = treat.name;
                     img.onerror = () => {
+                        console.error(`Failed to load rotated image for ${treat.name}: ${img.src}`);
                         img.src = 'https://via.placeholder.com/300x200.png?text=Image+Not+Available';
                     };
+                    h3.textContent = treat.name;
+                    p.textContent = treat.desc;
                     img.style.opacity = 1;
+                    console.log(`Rotated card ${index} to ${treat.name}`); // Debug log
                 }, 500);
             });
 
