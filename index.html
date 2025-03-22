@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Cycle Cravings - Sweet Treats for Your Soul</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            background: linear-gradient(135deg, #fff0f5, #ffd1dc);
+            color: #4a2c3d;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255, 182, 193, 0.9);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid #ff85a1;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        nav {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 1rem auto;
+            width: 80%;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ff69b4;
+            text-decoration: none;
+            margin: 0.5rem 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff1493;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            min-height: calc(100vh - 300px);
+        }
+
+        .quote {
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: #ff69b4;
+            margin: 2rem 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in;
+            transition: opacity 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .treats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .treat-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .treat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .treat-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: opacity 0.5s;
+        }
+
+        .treat-card h3 {
+            margin: 0.5rem 0;
+            color: #ff1493;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .section {
+            background: #fff0f5;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .location-finder button {
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .location-finder button:hover {
+            background: #ff1493;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 182, 193, 0.9);
+            color: white;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                min-height: auto;
+            }
+            footer {
+                position: relative;
+            }
+            .treat-card img {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cycle Cravings</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#treats">Treats</a>
+        <a href="#locations">Find Stores</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="section">
+            <div class="quote" id="rotating-quote">"Sweetness for the soul"</div>
+            <p>Welcome to Cycle Cravings, your haven for satisfying those special sweet cravings!</p>
+        </section>
+
+        <section id="treats" class="section">
+            <h2>Our Sweet Treats</h2>
+            <div class="treats-grid" id="treats-grid">
+                <!-- Treat cards will be dynamically populated -->
+            </div>
+        </section>
+
+        <section id="locations" class="section location-finder">
+            <h2>Find Sweet Shops Near You</h2>
+            <p>Discover nearby candy stores, ice cream parlors, and bakeries!</p>
+            <button onclick="getLocation()">Find My Location</button>
+            <p id="location-result"></p>
+            <div id="map" style="height: 300px; margin-top: 1rem; display: none;"></div>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About Cycle Cravings</h2>
+            <p>Cycle Cravings is your go-to website for satisfying women's sweetest cravings, especially during that time of the month. We showcase a variety of treats paired with uplifting quotes and AI-generated visuals to keep you craving more. Indulge, uplift, and enjoy!</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Cycle Cravings - Satisfying Your Sweetest Moments</p>
+    </footer>
+
+    <script>
+        // Sweet treats with associated quotes
+        const sweetContent = [
+            { 
+                type: "cupcake", 
+                name: "Vanilla Cupcakes", 
+                desc: "Classic fluffy delight", 
+                quote: "Sweetness for the soul" 
+            },
+            { 
+                type: "cupcake", 
+                name: "Chocolate Cupcakes", 
+                desc: "Rich cocoa bliss", 
+                quote: "A treat for every craving" 
+            },
+            { 
+                type: "cupcake", 
+                name: "Red Velvet Cupcakes", 
+                desc: "Velvety sweet treat", 
+                quote: "Indulgence is self-love" 
+            },
+            { 
+                type: "cookie", 
+                name: "Choc Chip Cookies", 
+                desc: "Gooey chocolate chunks", 
+                quote: "Sweets that heal the heart" 
+            },
+            { 
+                type: "cookie", 
+                name: "Oatmeal Cookies", 
+                desc: "Chewy wholesome bites", 
+                quote: "Because you deserve sweetness" 
+            },
+            { 
+                type: "cookie", 
+                name: "Sugar Cookies", 
+                desc: "Crisp sweet classics", 
+                quote: "Sweetness for the soul" 
+            },
+            { 
+                type: "icecream", 
+                name: "Vanilla Ice Cream", 
+                desc: "Creamy cool comfort", 
+                quote: "A treat for every craving" 
+            },
+            { 
+                type: "icecream", 
+                name: "Strawberry Ice Cream", 
+                desc: "Fruity sweet swirls", 
+                quote: "Indulgence is self-love" 
+            },
+            { 
+                type: "icecream", 
+                name: "Choc Mint Ice Cream", 
+                desc: "Refreshing indulgence", 
+                quote: "Sweets that heal the heart" 
+            },
+            { 
+                type: "candy", 
+                name: "Gummy Bears", 
+                desc: "Chewy colorful fun", 
+                quote: "Because you deserve sweetness" 
+            },
+            { 
+                type: "candy", 
+                name: "Lollipops", 
+                desc: "Swirly sweet pops", 
+                quote: "Sweetness for the soul" 
+            },
+            { 
+                type: "candy", 
+                name: "Choc Truffles", 
+                desc: "Decadent bites", 
+                quote: "A treat for every craving" 
+            }
+        ];
+
+        let currentIndex = 0;
+        const treatsPerPage = 12; // Show all treats at once, rotate content
+
+        // Function to generate AI image (simulated)
+        function generateAIImage(treatName, treatDesc) {
+            // In a real implementation, this would call an AI image generation API
+            // e.g., fetch('https://api.imagegen.com/generate', { method: 'POST', body: JSON.stringify({ prompt: `${treatName} - ${treatDesc}` }) })
+            // For now, we'll use a placeholder with the treat name
+            return `https://via.placeholder.com/300x200.png?text=AI+Generated+${encodeURIComponent(treatName)}`;
+        }
+
+        // Populate and rotate treats
+        function updateTreats() {
+            const grid = document.getElementById('treats-grid');
+            grid.innerHTML = ''; // Clear existing content
+
+            // Display all treats
+            sweetContent.forEach((treat, index) => {
+                const card = document.createElement('div');
+                card.className = 'treat-card';
+                card.dataset.type = treat.type;
+
+                const img = document.createElement('img');
+                img.id = `${treat.type}${index}-img`;
+                img.src = generateAIImage(treat.name, treat.desc); // Simulated AI image
+                img.alt = treat.name;
+
+                const h3 = document.createElement('h3');
+                h3.textContent = treat.name;
+
+                const p = document.createElement('p');
+                p.textContent = treat.desc;
+
+                card.appendChild(img);
+                card.appendChild(h3);
+                card.appendChild(p);
+                grid.appendChild(card);
+            });
+
+            // Update quote
+            const quoteElement = document.getElementById('rotating-quote');
+            quoteElement.style.opacity = 0;
+            setTimeout(() => {
+                quoteElement.textContent = sweetContent[currentIndex].quote;
+                quoteElement.style.opacity = 1;
+            }, 500);
+
+            // Rotate images within each card
+            document.querySelectorAll('.treat-card img').forEach(img => {
+                img.style.opacity = 0;
+                setTimeout(() => {
+                    const treat = sweetContent[currentIndex];
+                    img.src = generateAIImage(treat.name, treat.desc);
+                    img.alt = treat.name;
+                    img.style.opacity = 1;
+                }, 500);
+            });
+
+            currentIndex = (currentIndex + 1) % sweetContent.length;
+        }
+
+        // Rotate content every 10 seconds for constant craving
+        setInterval(updateTreats, 10000);
+        updateTreats(); // Initial load
+
+        // Location Finder with Sweet Shop Focus
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("location-result").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const result = document.getElementById("location-result");
+            const mapDiv = document.getElementById("map");
+
+            result.innerHTML = `Finding sweet shops near: Latitude ${lat.toFixed(2)}, Longitude ${lon.toFixed(2)}`;
+            mapDiv.style.display = "block";
+            mapDiv.innerHTML = `<div style="width: 100%; height: 100%; background: #ffe4e1; border-radius: 10px;">
+                Simulated Map (Lat: ${lat.toFixed(2)}, Lon: ${lon.toFixed(2)})
+                <br>Candy stores, ice cream parlors, and bakeries nearby!</div>`;
+
+            setTimeout(() => {
+                result.innerHTML += "<br>Nearby: Candy Cloud (0.3mi), Ice Cream Dream (0.7mi), Sweet Bake Shop (1.1mi)";
+            }, 1000);
+        }
+
+        function showError(error) {
+            const result = document.getElementById("location-result");
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    result.innerHTML = "Please allow location access to find nearby sweet shops.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    result.innerHTML = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    result.innerHTML = "The request to get location timed out.";
+                    break;
+                default:
+                    result.innerHTML = "An unknown error occurred.";
+                    break;
+            }
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
